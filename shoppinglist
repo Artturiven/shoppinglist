@@ -1,0 +1,46 @@
+shopping_list = []
+ready = None
+
+print('Type ADD if you want to add to your shopping list')
+print()
+print('If you want to remove an item, type REMOVE and the item\'s name')
+print()
+print('To view your list type LIST')
+print()
+print('When your done type READY')
+print()
+
+while ready is None:
+    question = input()
+    if question =='LIST':
+        print(shopping_list)
+      
+    while question == 'ADD':
+        item = input('What do you want to add (or are you DONE) ')
+        shopping_list.append(item)
+        if item == 'DONE':
+            shopping_list.remove('DONE')
+            print(shopping_list)
+            print()
+            print('Are you READY or do you want to ADD, REMOVE or view your LIST')
+            break 
+            
+    while question =='REMOVE':
+        print(shopping_list)
+        remove_item = input('What do you want to remove (or are you DONE) ')
+        if remove_item in shopping_list:
+            shopping_list.remove(remove_item)
+        elif remove_item == 'DONE':
+            print()
+            print('Are you READY or do you want to ADD, REMOVE or view your LIST')
+            break 
+        
+    if question =='READY':
+        print()
+        print('Here is your list is:')
+        #print(enumerate(shopping_list), sep='\n')
+        for i in shopping_list:
+            print(shopping_list.index(i) +1, end=' ')
+            print(" ",i)
+        
+        
